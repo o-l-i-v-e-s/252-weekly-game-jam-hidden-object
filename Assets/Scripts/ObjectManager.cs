@@ -25,11 +25,12 @@ public class ObjectManager : MonoBehaviour
     GameObject ChooseHiddenObject()
     {
         GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Object");
-        if((gameObjects != null) && (gameObjects.Length > 0))
+        if ((gameObjects != null) && (gameObjects.Length > 0))
         {
             Debug.Log(gameObjects.Length + " game objects found");
             return gameObjects[Random.Range(0, gameObjects.Length - 1)];
-        } else
+        }
+        else
         {
             return null;
         }
@@ -37,7 +38,7 @@ public class ObjectManager : MonoBehaviour
 
     private void UpdateSpriteActiveObject(string objectName)
     {
-            uiManager.UpdateSpriteActiveObject(objectName);
+        uiManager.UpdateSpriteActiveObject(objectName);
     }
 
     public void HandleChooseHiddenObject()
@@ -46,7 +47,8 @@ public class ObjectManager : MonoBehaviour
         if (HiddenObject == null)
         {
             UpdateSpriteActiveObject("None");
-        } else
+        }
+        else
         {
             UpdateSpriteActiveObject(HiddenObject.name);
         }

@@ -7,12 +7,16 @@ public class UIManager : MonoBehaviour
 {
     GameObject canvas;
     Image ActiveObjectImage;
-    private void Start()
+    private void Awake()
     {
         canvas = GameObject.FindGameObjectWithTag("MainCanvas");
         if (canvas == null)
         {
             Debug.LogError("Canvas is null in UIManager");
+        }
+        else
+        {
+            Debug.Log("Canvas found");
         }
         ActiveObjectImage = canvas.transform.Find("ActiveObjectImage").GetComponent<Image>();
         if (ActiveObjectImage == null)
@@ -25,7 +29,11 @@ public class UIManager : MonoBehaviour
         if (objectName != null)
         {
             string pathName = "Sprites/" + objectName;
-            ActiveObjectImage.sprite = Resources.Load<Sprite>(pathName);
+            Debug.Log(pathName);
+            Sprite sprite = Resources.Load<Sprite>(pathName);
+            Debug.Log(sprite);
+            Debug.Log(ActiveObjectImage);
+            ActiveObjectImage.sprite = sprite;
         }
     }
 }
