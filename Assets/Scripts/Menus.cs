@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Menus : MonoBehaviour
 {
-    public GameObject pauseMenu;
-    public bool isPaused;
+    [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject winMenu;
+    private bool isPaused;
 
     private void Update()
     {
@@ -47,5 +48,11 @@ public class Menus : MonoBehaviour
         isPaused = false;
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
+    }
+
+    public void ShowWinMenu()
+    {
+        winMenu.SetActive(true);
+        Time.timeScale = 0f;
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObjectManager : MonoBehaviour
 {
+    Menus menus;
     UIManager uiManager;
     private GameObject HiddenObject;
 
@@ -13,6 +14,11 @@ public class ObjectManager : MonoBehaviour
         if (uiManager == null)
         {
             Debug.LogError("uiManager is null in ObjectManager");
+        }
+        menus = gameObject.GetComponent<Menus>();
+        if (menus == null)
+        {
+            Debug.LogError("menus is null in ObjectManager");
         }
     }
 
@@ -46,6 +52,7 @@ public class ObjectManager : MonoBehaviour
         HiddenObject = ChooseHiddenObject();
         if (HiddenObject == null)
         {
+            menus.ShowWinMenu();
             UpdateSpriteActiveObject("None");
         }
         else
