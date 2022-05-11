@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour
     }
     public void UpdateSpriteActiveObject(string objectName)
     {
+        Debug.Log(objectName);
         if (objectName != null)
         {
             string pathName = "Sprites/" + objectName;

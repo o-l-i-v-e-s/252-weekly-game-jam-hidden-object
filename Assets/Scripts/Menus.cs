@@ -9,9 +9,14 @@ public class Menus : MonoBehaviour
     [SerializeField] GameObject winMenu;
     private bool isPaused;
 
+    private void Awake()
+    {
+        Debug.Log("Awake");
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Space))
         {
             if (pauseMenu != null)
             {
@@ -47,6 +52,7 @@ public class Menus : MonoBehaviour
 
     public void PauseGame()
     {
+        Debug.Log("Pause Game");
         isPaused = true;
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
@@ -54,6 +60,7 @@ public class Menus : MonoBehaviour
 
     public void ResumeGame()
     {
+        Debug.Log("Resume Game");
         isPaused = false;
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
